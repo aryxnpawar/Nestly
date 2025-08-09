@@ -1,0 +1,55 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+<div class="container mt-4">
+  <div id="filters">
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Pool</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-umbrella-beach"></i></div>
+      <p>Beach</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-city"></i></div>
+      <p>Iconic City</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-igloo"></i></div>
+      <p>Cabins</p>
+    </div>
+  </div>
+  <ul class="row list-unstyled">
+    <% for (const listItem of allListings) { %>
+    <li class="col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+      <a class="listing-link" href="/listings/<%= listItem._id %>">
+        <div class="card listing-card">
+          <img
+            src="<%= listItem.image.url %>"
+            class="card-img-top"
+            alt="listing image"
+          />
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <b><%= listItem.title%></b>
+
+            <p class="card-text">
+              <%= listItem.price.toLocaleString( "en-IN", {
+              maximumFractionDigits: 0, style: "currency", currency: "INR", } );
+              %> / night
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% } %>
+  </ul>
+</div>

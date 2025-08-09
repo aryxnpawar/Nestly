@@ -1,0 +1,81 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="container mt-4">
+    <h4 class="text-center mb-4">Create a new Listing</h4>
+
+    <div class="row justify-content-center">
+
+    <div class="col-md-6 col-sm-8">
+    <form action="/listings" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+
+        <div class="mb-3">
+        <label class="form-label" for="title">Title :</label>
+        <input id="title" class="form-control" name="listing[title]" type="text" required> 
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+        <div class="mb-3">
+        <label class="form-label" for="description">Description :</label>
+        <textarea id="description" class="form-control" name="listing[description]" required></textarea>
+        <div class="invalid-feedback">
+            Please enter a short description
+        </div>
+    </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="image">Upload Image :</label>
+            <input id="image" class="form-control" name="listing[image]" type="file" required> 
+         </div>
+
+         <div class="row">
+
+        <div class="mb-3 col-md-4" >
+            <label class="form-label" for="price">Price :</label>
+            <input id="price" class="form-control" name="listing[price]" type="text" required> 
+            <div class="invalid-feedback">
+                Please enter a valid price
+            </div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+            <label class="form-label" for="country">Country :</label>
+            <input id="country" class="form-control" name="listing[country]" type="text" required> 
+            <div class="invalid-feedback">
+                Please enter country name
+            </div>
+        </div>
+
+        </div>
+
+         <div class="mb-3">
+            <label class="form-label" for="location">Location :</label>
+            <input id="location" class="form-control" name="listing[location]" type="text" required> 
+            <div class="invalid-feedback">
+                Please enter accurate Location
+            </div>
+        </div>
+
+         <div class="mb-3">
+            <label class="form-label" for="category">Category :</label>
+            <select id="category" class="form-select" name="listing[category]" aria-label="Default select example" required>
+                <option value="" selected disabled hidden>Choose a fitting category...</option>
+                <option value="mountains">Mountains</option>
+                <option value="pool">Pool</option>
+                <option value="beach">Beach</option>
+                <option value="arctic">Arctic</option>
+                <option value="iconic city">Iconic city</option>
+                <option value="cabins">Cabins</option>
+              </select>
+            <div class="invalid-feedback">
+                Please choose the best fitting category
+            </div>
+        </div>
+
+        <button class="add-btn btn btn-dark mb-4" type="submit">Add</button>
+    </form>
+</div>
+</div>
+
+</div>
